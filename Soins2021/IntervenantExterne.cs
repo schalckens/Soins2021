@@ -23,6 +23,11 @@ namespace Soins2021
             this.tel = tel;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + " Spécialité : " + this.specialite + " - " + this.adresse + " - " + this.tel;
+        }
+
         //Properties
         public string Specialite { get => specialite; set => specialite = value; }
         public string Adresse { get => adresse; set => adresse = value; }

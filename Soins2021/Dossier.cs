@@ -24,22 +24,40 @@ namespace Soins2021
             this.dateNaissance = dateNaissance;
             this.prestations = new List<Prestation>();
         }
-        public Dossier(string nom, string prenom, string dateNaissance, Prestation prestation) :this(nom,prenom,dateNaissance)
+        public Dossier(string nom, string prenom, string dateNaissance, Prestation prestation, Intervenant intervenant) :this(nom,prenom,dateNaissance)
         {
-            AjoutePrestation(prestation.Libelle, prestation.DateHeureSoin);
+            AjoutePrestation(prestation.Libelle, prestation.DateHeureSoin, intervenant);
         }
         public Dossier(string nom, string prenom, string dateNaissance, List<Prestation> prestations) :this(nom,prenom,dateNaissance)
         {
             this.prestations = prestations;
         }
-        public void AjoutePrestation(string libelle,string dateHeureSoin)
+        public override string ToString()
         {
-            this.prestations.Add(new Prestation(libelle, dateHeureSoin));
+            string contenu = "";
+            foreach(Prestation presta in prestations)
+            {
+                contenu += presta.ToString();
+            }
+            return "Nom : "+ this.nom + " Prenom : " + this.prenom + " Date de naissance : " + this.dateNaissance + "\n\t" + contenu;
+        }
+        public void AjoutePrestation(string libelle,DateTime dateHeureSoin, Intervenant intervenant)
+        {
+            this.prestations.Add(new Prestation(libelle, dateHeureSoin,intervenant));
         }
 
-        public void GetNbPrestationsExternes()
+        public int GetNbPrestationsExternes()
         {
+            int cpt = 0;
+            foreach(Prestation prestation in prestations)
+            {
+                if (prestation.Intervenant is IntervenantExterne)
+                {
+                    cpt++;
+                }
+            }
 
+            return cpt;
         }
 
         public int GetNbPrestations()
@@ -47,9 +65,35 @@ namespace Soins2021
             return prestations.Count;
         }
 
-        public void GetNbJoursSoins()
+        public int GetNbJoursSoinsV1()
         {
-
+            int nb = this.prestations.Count;
+            for(int i = 0; i < this.prestations.Count-1; i++)
+            {
+                for(int j = i+1; j< this.prestations.Count; j++)
+                {
+                    if(this.prestations[i].DateHeureSoin.Date == this.prestations[j].DateHeureSoin.Date)
+                    {
+                        nb--;
+                    }
+                }
+            }
+            return nb;
+        }
+        public int GetNbJoursSoinsV2()
+        {
+            int nb = this.prestations.Count;
+            for (int i = 0; i < this.prestations.Count - 1; i++)
+            {
+                for (int j = i + 1; j < this.prestations.Count; j++)
+                {
+                    if (Prestation.CompareTo(this.prestations[i],this.prestations[j]) == 0)
+                    {
+                        nb--;
+                    }
+                }
+            }
+            return nb;
         }
 
         //Properties

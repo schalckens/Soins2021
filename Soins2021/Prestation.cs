@@ -16,18 +16,26 @@ namespace Soins2021
         private Intervenant intervenant;
 
         //Méthodes
-        public Prestation(string libelle, string dateHeureSoin)
+        public Prestation(string libelle, DateTime dateHeureSoin,Intervenant intervenant)
         {
             this.libelle = libelle;
             this.dateHeureSoin = dateHeureSoin;
+            this.intervenant = intervenant;
         }
-        public void CompareTo(Prestation presta1, Prestation presta2)
-        {
 
+        public override string ToString()
+        {
+            return "Libelle " + this.libelle + " - " + this.dateHeureSoin + " - " + this.intervenant.ToString() + "\n\t";
+        }
+        public static int CompareTo(Prestation presta1, Prestation presta2)
+        {
+            return DateTime.Compare(presta1.dateHeureSoin.Date, presta2.dateHeureSoin.Date);
+            
         }
 
         //Properties
         public string Libelle { get => libelle; }
-        public string DateHeureSoin { get => dateHeureSoin; }
+        public DateTime DateHeureSoin { get => dateHeureSoin; }
+        internal Intervenant Intervenant { get => intervenant; }
     }
 }

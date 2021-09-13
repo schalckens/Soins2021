@@ -13,6 +13,7 @@ namespace Soins2021
 
         private string nom;
         private string prenom;
+        private List<Prestation> prestations = new List<Prestation>();
 
         //Méthodes
         public Intervenant(string nom, string prenom)
@@ -20,9 +21,14 @@ namespace Soins2021
             this.nom = nom;
             this.prenom = prenom;
         }
-        public void AjoutePrestation()
-        {
 
+        public override string ToString()
+        {
+            return "Intervenant : " + this.nom + " - " + this.prenom;
+        }
+        public void AjoutePrestation(Prestation prestation)
+        {
+            prestations.Add(prestation);
         }
 
         //Properties
