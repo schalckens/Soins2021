@@ -31,6 +31,11 @@ namespace Soins2021
             prestations.Add(prestation);
         }
 
+        public int GetNbPrestations()
+        {
+            return prestations.Count;
+        }
+
         //Properties
         public string Nom { get => nom; }
         public string Prenom { get => prenom; }

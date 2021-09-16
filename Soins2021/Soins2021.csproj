@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SoinException.cs" />
+    <Compile Include="Traitement.cs" />
     <Compile Include="Dossier.cs" />
     <Compile Include="Intervenant.cs" />
     <Compile Include="IntervenantExterne.cs" />

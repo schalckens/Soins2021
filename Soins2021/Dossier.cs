@@ -12,38 +12,51 @@ namespace Soins2021
 
         private string nom;
         private string prenom;
-        private string dateNaissance;
+        private DateTime dateNaissance;
         private List<Prestation> prestations;
+        private DateTime dateCreation;
 
         //Méthodes
-        public Dossier(string nom, string prenom, string dateNaissance)
+        public Dossier(string nom, string prenom, DateTime dateNaissance)
         {
             
             this.nom = nom;
             this.prenom = prenom;
             this.dateNaissance = dateNaissance;
+            //this.dateCreation = DateTime.Now;
+            this.dateCreation = new DateTime(2015, 10, 8, 12, 00, 00);
             this.prestations = new List<Prestation>();
         }
-        public Dossier(string nom, string prenom, string dateNaissance, Prestation prestation, Intervenant intervenant) :this(nom,prenom,dateNaissance)
+        public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation prestation) :this(nom,prenom,dateNaissance)
         {
-            AjoutePrestation(prestation.Libelle, prestation.DateHeureSoin, intervenant);
+            AjoutePrestation(prestation);
         }
-        public Dossier(string nom, string prenom, string dateNaissance, List<Prestation> prestations) :this(nom,prenom,dateNaissance)
+        public Dossier(string nom, string prenom, DateTime dateNaissance, List<Prestation> prestations) :this(nom,prenom,dateNaissance)
         {
-            this.prestations = prestations;
+            foreach(Prestation prestation in prestations)
+            {
+                AjoutePrestation(prestation);
+            }
         }
         public override string ToString()
         {
             string contenu = "";
             foreach(Prestation presta in prestations)
             {
-                contenu += presta.ToString();
+                contenu += presta;
             }
-            return "Nom : "+ this.nom + " Prenom : " + this.prenom + " Date de naissance : " + this.dateNaissance + "\n\t" + contenu;
+            return "-------------Début dossier ------------ \n" + "Nom : "+ this.nom + " Prenom : " + this.prenom + " Date de naissance : " + this.dateNaissance + "\n\t" + contenu + "\n -------------Fin dossier --------------";
         }
-        public void AjoutePrestation(string libelle,DateTime dateHeureSoin, Intervenant intervenant)
+        public void AjoutePrestation(Prestation prestation)
         {
-            this.prestations.Add(new Prestation(libelle, dateHeureSoin,intervenant));
+            if(!(prestation.DateHeureSoin.CompareTo(dateCreation) == -1))
+            {
+                this.prestations.Add(prestation);
+            }
+            else
+            {
+                throw new SoinException("Date non-valide");
+            }
         }
 
         public int GetNbPrestationsExternes()
@@ -65,29 +78,19 @@ namespace Soins2021
             return prestations.Count;
         }
 
+        /// <summary>
+        /// Première méthode pour obtenir le nb de jours de prestation.
+        /// Méthode double boucle.
+        /// </summary>
+        /// <returns> nb jour soins </returns>
         public int GetNbJoursSoinsV1()
-        {
-            int nb = this.prestations.Count;
-            for(int i = 0; i < this.prestations.Count-1; i++)
-            {
-                for(int j = i+1; j< this.prestations.Count; j++)
-                {
-                    if(this.prestations[i].DateHeureSoin.Date == this.prestations[j].DateHeureSoin.Date)
-                    {
-                        nb--;
-                    }
-                }
-            }
-            return nb;
-        }
-        public int GetNbJoursSoinsV2()
         {
             int nb = this.prestations.Count;
             for (int i = 0; i < this.prestations.Count - 1; i++)
             {
                 for (int j = i + 1; j < this.prestations.Count; j++)
                 {
-                    if (Prestation.CompareTo(this.prestations[i],this.prestations[j]) == 0)
+                    if (Prestation.CompareTo(this.prestations[i], this.prestations[j]) == 0)
                     {
                         nb--;
                     }
@@ -96,9 +99,53 @@ namespace Soins2021
             return nb;
         }
 
+        /// <summary>
+        /// Deuxième méthode pour obtenir le nb de jours de prestation.
+        /// Ajout dans une liste viste si pas déjà présente.
+        /// </summary>
+        /// <returns> nb jour soins </returns>
+        public int GetNbJoursSoinsV2()
+        {
+            List<DateTime> dates = new List<DateTime>();
+            foreach(Prestation presta in prestations)
+            {
+                if (!dates.Contains(presta.DateHeureSoin.Date))
+                {
+                    dates.Add(presta.DateHeureSoin.Date);
+                }
+            }
+            return dates.Count;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public int GetNbJoursSoinsV3()
+        {
+            List<Prestation> dateTrie = prestations.OrderBy(prest => prest.DateHeureSoin).ToList(); //ordre croissant
+            //List<Prestation> dateTrie = prestations.OrderByDescending(prest => prest.DateHeureSoin).ToList(); //ordre décroissant
+
+            DateTime baser = dateTrie[0].DateHeureSoin.Date;
+            int cpt = 0;
+
+            foreach (Prestation date in dateTrie)
+            {
+                if (!(date.DateHeureSoin.Date == baser))
+                {
+                    cpt++;
+                    baser = date.DateHeureSoin.Date;
+                }
+            }
+
+            return cpt+1;
+        }
+
         //Properties
         public string Nom { get => nom;}
         public string Prenom { get => prenom;}
-        public string DateNaissance { get => dateNaissance;}
+        public DateTime DateNaissance { get => dateNaissance;}
+        internal List<Prestation> Prestations { get => prestations; }
+        public DateTime DateCreation { get => dateCreation; }
     }
 }

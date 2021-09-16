@@ -25,7 +25,7 @@ namespace Soins2021
 
         public override string ToString()
         {
-            return "Libelle " + this.libelle + " - " + this.dateHeureSoin + " - " + this.intervenant.ToString() + "\n\t";
+            return "Libelle " + this.libelle + " - " + this.dateHeureSoin + " - " + this.intervenant + "\n\t";
         }
         public static int CompareTo(Prestation presta1, Prestation presta2)
         {

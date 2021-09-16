@@ -29,7 +29,7 @@ namespace Soins2021
         }
 
         //Properties
-        public string Specialite { get => specialite; set => specialite = value; }
+        public string Specialite { get => specialite; }
         public string Adresse { get => adresse; set => adresse = value; }
         public string Tel { get => tel; set => tel = value; }
     }
