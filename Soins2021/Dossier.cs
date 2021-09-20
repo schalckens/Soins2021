@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Soins2021
@@ -139,6 +140,11 @@ namespace Soins2021
             }
 
             return cpt+1;
+        }
+
+        private bool IsDateValide(DateTime date)
+        {
+            return true;
         }
 
         //Properties

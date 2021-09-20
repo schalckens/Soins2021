@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Soins2021
+namespace Soins2021.Exceptions
 {
     class SoinException : Exception
     { 
