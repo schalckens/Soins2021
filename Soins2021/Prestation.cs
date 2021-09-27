@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Soins2021.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace Soins2021
             if(DateTime.Compare(DateTime.Now.Date,dateHeureSoin.Date) >= 0 )
             {
                 this.dateHeureSoin = dateHeureSoin;
+            }
+            else
+            {
+                throw new SoinException("Date non conforme");
             }
             this.intervenant = intervenant;
         }

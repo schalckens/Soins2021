@@ -126,7 +126,7 @@ namespace Soins2021
                 Prestation prestation6 = new Prestation("P5", Convert.ToDateTime("10/09/2015 06:00:00"), intervenant6);
 
 
-                Dossier dossier = new Dossier("Robert", "Jean", new DateTime(2080, 12, 3), new DateTime(2013,09,15));
+                Dossier dossier = new Dossier("Robert", "Jean", new DateTime(1989, 12, 3), new DateTime(2013,09,15));
                 dossier.AjoutePrestation(prestation1);
                 dossier.AjoutePrestation(prestation2);
                 dossier.AjoutePrestation(prestation3);
@@ -161,7 +161,7 @@ namespace Soins2021
                 Prestation prestation6 = new Prestation("P5", Convert.ToDateTime("10/09/2015 06:00:00"), intervenant6);
 
 
-                Dossier dossier = new Dossier("Robert", "Jean", new DateTime(2080, 12, 3));
+                Dossier dossier = new Dossier("Robert", "Jean", new DateTime(1989, 12, 3), new DateTime(2080, 12, 3));
                 dossier.AjoutePrestation(prestation1);
                 dossier.AjoutePrestation(prestation2);
                 dossier.AjoutePrestation(prestation3);
@@ -199,16 +199,73 @@ namespace Soins2021
             try
             {
                 Intervenant intervenant1 = new Intervenant("Dupont", "Jean");
-                Prestation p = new Prestation("presta test", Convert.ToDateTime("10/09/2032 12:00:00"), intervenant1);
+                Prestation p = new Prestation("presta test", Convert.ToDateTime("10/09/2022 12:00:00"), intervenant1);
 
-                Console.WriteLine("TestDatePrestationKO : Succès");
+                Console.WriteLine("TestDatePrestationKO : Echec");
             }
             catch (Exception)
             {
 
-                Console.WriteLine("TestDatePrestationKO : Echec");
+                Console.WriteLine("TestDatePrestationKO : Succès");
             }
         }
 
+        public static void TestDateDossierNaissanceOK()
+        {
+            try
+            {
+                Dossier d = new Dossier("Dupont", "Jean", Convert.ToDateTime("10/09/1989 12:00:00"));
+
+                Console.WriteLine("TestDateDossierNaissanceOK : Succès");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("TestDateDossierNaissanceOK : Echec");
+            }
+        }
+        public static void TestDateDossierNaissanceKO()
+        {
+            try
+            {
+                Dossier d = new Dossier("Dupont", "Jean", Convert.ToDateTime("10/09/2080 12:00:00"));
+
+                Console.WriteLine("TestDateDossierNaissanceOK : Echec");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("TestDateDossierNaissanceOK : Succès");
+            }
+        }
+
+        public static void TestDateDossierCreationOK()
+        {
+            try
+            {
+                Dossier d = new Dossier("Dupont", "Jean", Convert.ToDateTime("10/09/1989 12:00:00"), Convert.ToDateTime("10/09/2015 12:00:00"));
+
+                Console.WriteLine("TestDateDossierCreationnOK : Succès");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("TestDateDossierCreationOK : Echec");
+            }
+        }
+        public static void TestDateDossierCreationKO()
+        {
+            try
+            {
+                Dossier d = new Dossier("Dupont", "Jean", Convert.ToDateTime("10/09/1989 12:00:00"), Convert.ToDateTime("10/09/2080 12:00:00"));
+
+                Console.WriteLine("TestDateDossierCreationOK : Echec");
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("TestDateDossierCreationOK : Succès");
+            }
+        }
     }
 }

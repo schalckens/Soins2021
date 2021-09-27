@@ -24,14 +24,30 @@ namespace Soins2021
             
             this.nom = nom;
             this.prenom = prenom;
-            this.dateNaissance = dateNaissance;
+            if (DateTime.Compare(DateTime.Now.Date, dateNaissance) >= 0)
+            {
+                this.dateNaissance = dateNaissance;
+            }
+            else
+            {
+                throw new SoinException("Date non conforme");
+            }
+            
             this.dateCreation = DateTime.Now;
-            this.dateCreation = new DateTime(2015, 10, 8, 12, 00, 00);
+            //this.dateCreation = new DateTime(2015, 10, 8, 12, 00, 00);
             this.prestations = new List<Prestation>();
         }
         public Dossier(string nom, string prenom, DateTime dateNaissance,DateTime dateCreation) :this(nom,prenom,dateNaissance)
         {
-            this.dateCreation = dateCreation;
+            if ((DateTime.Compare(DateTime.Now.Date, dateCreation) >= 0))
+            {
+                this.dateCreation = dateCreation;
+            }
+            else
+            {
+                throw new SoinException("Date non conforme");
+            }
+            
         }
         public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation prestation) :this(nom,prenom,dateNaissance)
         {
@@ -55,6 +71,7 @@ namespace Soins2021
         }
         public void AjoutePrestation(Prestation prestation)
         {
+            // pour que le test renvoi tru il faut que la date de gauche soit supérieure ou égal
             if((DateTime.Compare(prestation.DateHeureSoin.Date,this.DateCreation.Date) >= 0))
             {
                 this.prestations.Add(prestation);
