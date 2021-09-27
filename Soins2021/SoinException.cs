@@ -10,11 +10,7 @@ namespace Soins2021.Exceptions
     { 
         private string message;
 
-        public SoinException(string message)
-        {
-            this.message = message;
-        }
-
+        public SoinException(string message) :base(message) { }
         public string Message1 { get => message; set => message = value; }
     }
 }

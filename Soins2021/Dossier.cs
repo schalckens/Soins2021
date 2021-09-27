@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Soins2021.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +25,13 @@ namespace Soins2021
             this.nom = nom;
             this.prenom = prenom;
             this.dateNaissance = dateNaissance;
-            //this.dateCreation = DateTime.Now;
+            this.dateCreation = DateTime.Now;
             this.dateCreation = new DateTime(2015, 10, 8, 12, 00, 00);
             this.prestations = new List<Prestation>();
+        }
+        public Dossier(string nom, string prenom, DateTime dateNaissance,DateTime dateCreation) :this(nom,prenom,dateNaissance)
+        {
+            this.dateCreation = dateCreation;
         }
         public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation prestation) :this(nom,prenom,dateNaissance)
         {
@@ -50,7 +55,7 @@ namespace Soins2021
         }
         public void AjoutePrestation(Prestation prestation)
         {
-            if(!(prestation.DateHeureSoin.CompareTo(dateCreation) == -1))
+            if((DateTime.Compare(prestation.DateHeureSoin.Date,this.DateCreation.Date) >= 0))
             {
                 this.prestations.Add(prestation);
             }

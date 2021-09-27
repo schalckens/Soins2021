@@ -19,7 +19,10 @@ namespace Soins2021
         public Prestation(string libelle, DateTime dateHeureSoin,Intervenant intervenant)
         {
             this.libelle = libelle;
-            this.dateHeureSoin = dateHeureSoin;
+            if(DateTime.Compare(DateTime.Now.Date,dateHeureSoin.Date) >= 0 )
+            {
+                this.dateHeureSoin = dateHeureSoin;
+            }
             this.intervenant = intervenant;
         }
 
