@@ -21,10 +21,10 @@ namespace Soins2021
                 //Console.WriteLine("Nombre de jours de soins V3 :" + dossier.GetNbJoursSoinsV3());
                 //Console.WriteLine("Nombre de soins externes : " + dossier.GetNbPrestationsExternes());
 
-                //Traitement.TestDateDossierPrestationOK();
-                //Traitement.TestDateDossierPrestationKO();
-                //Traitement.TestDatePrestationOK();
-                //Traitement.TestDatePrestationKO();
+                Traitement.TestDateDossierPrestationOK();
+                Traitement.TestDateDossierPrestationKO();
+                Traitement.TestDatePrestationOK();
+                Traitement.TestDatePrestationKO();
                 Traitement.TestDateDossierCreationOK();
                 Traitement.TestDateDossierCreationKO();
                 Traitement.TestDateDossierNaissanceOK();
