@@ -1,43 +1,67 @@
-{{}}{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 08:37:44",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 08:37:47",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}System.Collections.Generic.List`1[System.String]System.Collections.Generic.List`1[System.String]System.Collections.Generic.List`1[System.String]System.Collections.Generic.List`1[System.String]System.Collections.Generic.List`1[System.String]{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 09:12:08",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 09:12:08",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 09:12:08",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}{
-  "Soins2021": "Soins2021",
-  "ClasseException": "SoinException",
-  "DateException": "29/09/2021 09:12:08",
-  "MessageException": "Date non conforme",
-  "UserException": "valentine.schalckens",
-  "UserMachine": "CP-SIO-W10-PG10"
-}
+[
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:29:46",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:29:46",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:29:46",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:29:46",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  }
+
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:30:06",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:30:06",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:30:06",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  },
+  {
+    "Soins2021": "Soins2021",
+    "ClasseException": "SoinException",
+    "DateException": "30/09/2021 10:30:06",
+    "MessageException": "Date non conforme",
+    "UserException": "valentine.schalckens",
+    "UserMachine": "CP-SIO-W10-PG10"
+  }
+]

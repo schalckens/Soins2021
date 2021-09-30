@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Soins2021.Exceptions;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +32,19 @@ namespace Soins2021
                 Traitement.TestDateDossierCreationKO();
                 Traitement.TestDateDossierNaissanceOK();
                 Traitement.TestDateDossierNaissanceKO();
+
+
+                //string filePath = @"E:\Roche\TP C# 2a\Soins2021\Soins2021\ExceptionData.json";
+
+                //FileStream file = new FileStream(@"E:\Roche\TP C# 2a\Soins2021\Soins2021\ExceptionData.json", FileMode.Append);
+                //FileStream file = File.OpenWrite(filePath);
+                //string jsonLog = JsonConvert.SerializeObject(SoinException.ListEx,Formatting.Indented);
+                //File.AppendAllText(filePath, jsonLog);
+                //byte[] bytes = Encoding.UTF8.GetBytes(jsonLog);
+                //file.Write(bytes, 0, bytes.Length);
+
+                SoinException.Log();
+
             }
             catch (Exception ex)
             {
