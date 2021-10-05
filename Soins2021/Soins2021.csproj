@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\SoinException.cs" />
     <Compile Include="Exceptions\TempException.cs" />
+    <Compile Include="TestsUnitaires.cs" />
     <Compile Include="Traitement.cs" />
     <Compile Include="Dossier.cs" />
     <Compile Include="Intervenant.cs" />
